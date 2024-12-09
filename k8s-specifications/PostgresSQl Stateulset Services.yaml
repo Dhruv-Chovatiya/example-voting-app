@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-db-lb
+spec:
+  type: LoadBalancer  # Moved outside the selector block
+  selector:
+    app: postgresql-db
+  ports:
+  - port: 5432
+    targetPort: 5432  # Correctly indented within the ports array
